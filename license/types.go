@@ -69,7 +69,7 @@ func (c Config) newTemplate(text string) (func(io.Writer) error, error) {
 }
 
 func cleanup(text string) *block {
-	return newBlock(text).trimSpace().untabify(0).leftJust().ensureBlankTail()
+	return newBlock(text).trimSpace().untabify(0).leftJust()
 }
 
 // WriteText renders the main license text to w.
@@ -107,7 +107,7 @@ func (lic *License) EditFile(f *os.File, c *Config, indent Indenting) error {
 
 	// Generate the per-file license text at the head of the file.  Ensure there
 	// is a blank separating the license text from anything else below it.
-	clean := indent.fix(cleanup(lic.PerFile)).append("")
+	clean := indent.fix(cleanup(lic.PerFile)).append("\n")
 	write, err := c.newTemplate(clean.String())
 	if err != nil {
 		return err
