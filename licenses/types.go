@@ -16,6 +16,13 @@ import (
 	"time"
 )
 
+// PerFileNotice is a generic per-file license statement that can be added to
+// any license that does not have more specific language to recommend.
+const PerFileNotice = `
+Copyright (C) {{date "2006"}}, {{.Author}}
+All Rights Reserved.
+`
+
 // A License describes a software license.
 //
 // A package that implements a license should call license.Register during init

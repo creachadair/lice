@@ -5,10 +5,11 @@ import "bitbucket.org/creachadair/lice/licenses"
 
 func init() {
 	licenses.Register(licenses.License{
-		Name: "MIT License (Expat)",
-		Slug: "mit-expat",
-		URL:  "https://directory.fsf.org/wiki/License:Expat",
-		Text: text,
+		Name:    "MIT License (Expat)",
+		Slug:    "mit-expat",
+		URL:     "https://directory.fsf.org/wiki/License:Expat",
+		Text:    text,
+		PerFile: licenses.PerFileNotice,
 	})
 }
 

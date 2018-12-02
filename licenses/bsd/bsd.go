@@ -5,15 +5,16 @@ import "bitbucket.org/creachadair/lice/licenses"
 
 func init() {
 	licenses.Register(licenses.License{
-		Name: "Modified BSD license (3-clause)",
-		Slug: "bsd3c",
-		URL:  "https://directory.fsf.org/wiki/License:BSD-3-Clause",
-		Text: text,
+		Name:    "Modified BSD license (3-clause)",
+		Slug:    "bsd3c",
+		URL:     "https://directory.fsf.org/wiki/License:BSD-3-Clause",
+		Text:    text,
+		PerFile: licenses.PerFileNotice,
 	})
 }
 
 const text = `
-Copyright (C) {{date "2006"}} {{.Author}}
+Copyright (C) {{date "2006"}}, {{.Author}}
 All Rights Reserved.
 
 Redistribution and use in source and binary forms, with or without
