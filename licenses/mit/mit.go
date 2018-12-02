@@ -1,10 +1,10 @@
 // Package mit describes "the" MIT software licenses.
 package mit
 
-import "bitbucket.org/creachadair/lice/license"
+import "bitbucket.org/creachadair/lice/licenses"
 
 func init() {
-	license.Register(license.License{
+	licenses.Register(licenses.License{
 		Name: "MIT License (Expat)",
 		Slug: "mit-expat",
 		URL:  "https://directory.fsf.org/wiki/License:Expat",

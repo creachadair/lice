@@ -1,10 +1,10 @@
 // Package gpl describes the GNU GPL software licenses.
 package gpl
 
-import "bitbucket.org/creachadair/lice/license"
+import "bitbucket.org/creachadair/lice/licenses"
 
 func init() {
-	license.Register(license.License{
+	licenses.Register(licenses.License{
 		Name:    "GNU General Public License (GPL) version 3",
 		Slug:    "gplv3",
 		URL:     "https://www.gnu.org/licenses/gpl.html",

@@ -13,12 +13,12 @@ import (
 
 	"bitbucket.org/creachadair/goflags/enumflag"
 	"bitbucket.org/creachadair/goflags/timeflag"
-	"bitbucket.org/creachadair/lice/license"
+	"bitbucket.org/creachadair/lice/licenses"
 
-	_ "bitbucket.org/creachadair/lice/license/apache"
-	_ "bitbucket.org/creachadair/lice/license/bsd"
-	_ "bitbucket.org/creachadair/lice/license/gpl"
-	_ "bitbucket.org/creachadair/lice/license/mit"
+	_ "bitbucket.org/creachadair/lice/licenses/apache"
+	_ "bitbucket.org/creachadair/lice/licenses/bsd"
+	_ "bitbucket.org/creachadair/lice/licenses/gpl"
+	_ "bitbucket.org/creachadair/lice/licenses/mit"
 )
 
 var (
@@ -32,12 +32,12 @@ var (
 
 	userName string
 
-	indent = map[string]license.Indenting{
-		"hash":  license.IPrefix("# "),                    // like bash, Python, Perl
-		"slash": license.IPrefix("// "),                   // like C++, Go, Java
-		"star":  license.IComment("/*", "   ", " */"),     // like C
-		"sstar": license.IComment("/*", " * ", " */"),     // like C
-		"xml":   license.IComment("<!--", "   ", "  -->"), // like HTML, XML
+	indent = map[string]licenses.Indenting{
+		"hash":  licenses.IPrefix("# "),                    // like bash, Python, Perl
+		"slash": licenses.IPrefix("// "),                   // like C++, Go, Java
+		"star":  licenses.IComment("/*", "   ", " */"),     // like C
+		"sstar": licenses.IComment("/*", " * ", " */"),     // like C
+		"xml":   licenses.IComment("<!--", "   ", "  -->"), // like HTML, XML
 	}
 )
 
@@ -81,7 +81,7 @@ func main() {
 		}
 		fmt.Println("Available licenses:")
 		tw := tabwriter.NewWriter(os.Stdout, 8, 4, 2, ' ', tabwriter.DiscardEmptyColumns)
-		license.List(func(lic license.License) {
+		licenses.List(func(lic licenses.License) {
 			fmt.Fprint(tw, lic.Slug, "\t", lic.Name, "\t", lic.URL, "\n")
 		})
 		tw.Flush()
@@ -91,12 +91,12 @@ func main() {
 	}
 
 	// The remaining operations require a license and a config.
-	lic := license.Lookup(*slug)
+	lic := licenses.Lookup(*slug)
 	if lic == nil {
 		log.Fatalf("Unknown license type %q (use -list for a list)", *slug)
 	}
 
-	cfg := &license.Config{
+	cfg := &licenses.Config{
 		Author: userName,
 		Time:   dateNow.Time,
 	}
@@ -153,7 +153,7 @@ func main() {
 // rule was specified by the user, use that; otherwise if the user asked us to
 // guess, do so based on its file extension. If no indenting rule can be
 // inferred, fall back to undecorated text.
-func chooseIndent(path string) license.Indenting {
+func chooseIndent(path string) licenses.Indenting {
 	in, ok := indent[indentStyle.Key()]
 	if ok {
 		return in

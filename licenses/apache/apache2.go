@@ -1,10 +1,10 @@
 // Package apache describes the Apache software licenses.
 package apache
 
-import "bitbucket.org/creachadair/lice/license"
+import "bitbucket.org/creachadair/lice/licenses"
 
 func init() {
-	license.Register(license.License{
+	licenses.Register(licenses.License{
 		Name:    "Apache License, Version 2.0",
 		Slug:    "apache2.0",
 		URL:     "https://directory.fsf.org/wiki/License:Apache-2.0",

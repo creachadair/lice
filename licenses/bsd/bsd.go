@@ -1,10 +1,10 @@
 // Package bsd describes BSD software licenses.
 package bsd
 
-import "bitbucket.org/creachadair/lice/license"
+import "bitbucket.org/creachadair/lice/licenses"
 
 func init() {
-	license.Register(license.License{
+	licenses.Register(licenses.License{
 		Name: "Modified BSD license (3-clause)",
 		Slug: "bsd3c",
 		URL:  "https://directory.fsf.org/wiki/License:BSD-3-Clause",

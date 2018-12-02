@@ -1,6 +1,6 @@
-// Package license defines a base type and support functions for describing
+// Package licenses defines a base type and support functions for describing
 // software licenses.
-package license
+package licenses
 
 // For a list of licenses and comments about them, see:
 // https://www.gnu.org/licenses/license-list.en.html
