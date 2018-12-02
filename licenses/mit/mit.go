@@ -1,3 +1,6 @@
+// Copyright (C) 2018, Michael J. Fromberger
+// All Rights Reserved.
+
 // Package mit describes "the" MIT software licenses.
 package mit
 

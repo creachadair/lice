@@ -1,3 +1,6 @@
+// Copyright (C) 2018, Michael J. Fromberger
+// All Rights Reserved.
+
 // Package apache describes the Apache software licenses.
 package apache
 

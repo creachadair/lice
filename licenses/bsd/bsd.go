@@ -1,3 +1,6 @@
+// Copyright (C) 2018, Michael J. Fromberger
+// All Rights Reserved.
+
 // Package bsd describes BSD software licenses.
 package bsd
 

@@ -1,3 +1,6 @@
+// Copyright (C) 2018, Michael J. Fromberger
+// All Rights Reserved.
+
 // Package licenses defines a base type and support functions for describing
 // software licenses.
 package licenses

@@ -1,3 +1,6 @@
+// Copyright (C) 2018, Michael J. Fromberger
+// All Rights Reserved.
+
 // Program lice creates license files and injects license text into source.
 package main
 
