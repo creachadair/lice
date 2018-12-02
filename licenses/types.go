@@ -77,7 +77,7 @@ func (lic *License) WriteText(w io.Writer, c *Config) error {
 	if lic == nil {
 		return errors.New("no license found")
 	}
-	clean := cleanup(lic.Text)
+	clean := cleanup(lic.Text).append("") // ensure file ends with a newline
 	write, err := c.newTemplate(clean.String())
 	if err != nil {
 		return err
