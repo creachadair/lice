@@ -20,6 +20,7 @@ import (
 
 	_ "bitbucket.org/creachadair/lice/licenses/apache"
 	_ "bitbucket.org/creachadair/lice/licenses/bsd"
+	_ "bitbucket.org/creachadair/lice/licenses/cc"
 	_ "bitbucket.org/creachadair/lice/licenses/gpl"
 	_ "bitbucket.org/creachadair/lice/licenses/mit"
 )
