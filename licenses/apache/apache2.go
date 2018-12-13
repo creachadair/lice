@@ -194,7 +194,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 END OF TERMS AND CONDITIONS
 `
 const perFile = `
-Copyright {{date "2006"}} {{.Author}}
+Copyright {{date "2006"}} {{.Author}}. All Rights Reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

@@ -1,5 +1,4 @@
-// Copyright (C) 2018, Michael J. Fromberger
-// All Rights Reserved.
+// Copyright (C) 2018 Michael J. Fromberger. All Rights Reserved.
 
 // Package licenses defines a base type and support functions for describing
 // software licenses.
@@ -22,8 +21,7 @@ import (
 // PerFileNotice is a generic per-file license statement that can be added to
 // any license that does not have more specific language to recommend.
 const PerFileNotice = `
-Copyright (C) {{date "2006"}}, {{.Author}}
-All Rights Reserved.
+Copyright (C) {{date "2006"}} {{.Author}}. All Rights Reserved.
 `
 
 // A License describes a software license.

@@ -1,5 +1,4 @@
-// Copyright (C) 2018, Michael J. Fromberger
-// All Rights Reserved.
+// Copyright (C) 2018 Michael J. Fromberger. All Rights Reserved.
 
 // Package gpl describes the GNU GPL software licenses.
 package gpl
