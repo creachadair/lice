@@ -33,6 +33,7 @@ var (
 	doForce     = flag.Bool("f", false, "Force overwrite of existing files")
 	doEdit      = flag.Bool("edit", false, "Edit license text into non-flag argument files")
 	doList      = flag.Bool("list", false, "List available licenses")
+	viewLicense = flag.String("view", "", "View license text")
 
 	userName string
 
@@ -80,8 +81,8 @@ func main() {
 
 	// If a list is requested, do that and exit early.
 	if *doList {
-		if *doEdit || *writeFile != "" {
-			log.Fatal("You may not combine -write or -edit with -list")
+		if *doEdit || *viewLicense != "" || *writeFile != "" {
+			log.Fatal("You may not combine -write, -edit, or -view with -list")
 		}
 		fmt.Println("Available licenses:")
 		tw := tabwriter.NewWriter(os.Stdout, 8, 4, 2, ' ', tabwriter.DiscardEmptyColumns)
@@ -90,11 +91,12 @@ func main() {
 		})
 		tw.Flush()
 		return
-	} else if *slug == "" {
+	} else if *viewLicense != "" {
+		*slug = *viewLicense
+	} else if *slug == "" && *viewLicense == "" {
 		log.Fatal("You must specify a license to use with -L")
 	}
 
-	// The remaining operations require a license and a config.
 	lic := licenses.Lookup(*slug)
 	if lic == nil {
 		log.Fatalf("Unknown license type %q (use -list for a list)", *slug)
@@ -103,6 +105,13 @@ func main() {
 	cfg := &licenses.Config{
 		Author: userName,
 		Time:   dateNow.Time,
+	}
+
+	// View a license.
+	if *viewLicense != "" {
+		if err := lic.WriteText(os.Stdout, cfg); err != nil {
+			log.Fatalf("Viewing license: %v", err)
+		}
 	}
 
 	// Write a license to a file.
