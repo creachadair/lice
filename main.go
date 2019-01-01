@@ -28,6 +28,7 @@ import (
 var (
 	indentStyle = enumflag.New("guess", "hash", "none", "slash", "star", "sstar", "xml")
 	dateNow     = &timeflag.Value{Layout: "2006", Time: time.Now()}
+	projectName = flag.String("project", "", "Project name (if distinct from author)")
 	writeFile   = flag.String("write", "", "Write a license file at this path")
 	slug        = flag.String("L", "", "License to use (use -list for a list)")
 	doForce     = flag.Bool("f", false, "Force overwrite of existing files")
@@ -103,8 +104,9 @@ func main() {
 	}
 
 	cfg := &licenses.Config{
-		Author: userName,
-		Time:   dateNow.Time,
+		Author:  userName,
+		Project: *projectName,
+		Time:    dateNow.Time,
 	}
 
 	// View a license.
