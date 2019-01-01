@@ -23,8 +23,8 @@ func (r *registry) visit(f func(License)) {
 }
 
 func (r *registry) lookup(slug string) (int, bool) {
-	i, j := 0, len(r.known)-1
-	for i <= j {
+	i, j := 0, len(r.known)
+	for i < j {
 		m := (i + j) / 2
 		cur := r.known[m].Slug
 		if slug == cur {
@@ -43,7 +43,7 @@ func (r *registry) insert(lic License) bool {
 	if ok {
 		return false
 	}
-	r.known = append(append(r.known[:i], lic), r.known[i:]...)
+	r.known = append(r.known[:i], append([]License{lic}, r.known[i:]...)...)
 	return true
 }
 
