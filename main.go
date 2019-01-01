@@ -27,7 +27,7 @@ import (
 
 var (
 	indentStyle = enumflag.New("guess", "hash", "none", "slash", "star", "sstar", "xml")
-	dateNow     = &timeflag.Value{Layout: "2006-01-02", Time: time.Now()}
+	dateNow     = &timeflag.Value{Layout: "2006", Time: time.Now()}
 	writeFile   = flag.String("write", "", "Write a license file at this path")
 	slug        = flag.String("L", "", "License to use (use -list for a list)")
 	doForce     = flag.Bool("f", false, "Force overwrite of existing files")
