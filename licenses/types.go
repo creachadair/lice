@@ -55,6 +55,10 @@ type Config struct {
 	// The name of the author, to whom copyright is attributed.
 	Author string
 
+	// The name of the project to which the license is attached, if different
+	// from the author. Example: "FreeBSD".
+	Project string
+
 	// The current time. The template can render this field using the "time" and
 	// "date" functions provided in the function map.
 	Time time.Time
