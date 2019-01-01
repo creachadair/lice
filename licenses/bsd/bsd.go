@@ -10,12 +10,12 @@ func init() {
 		Name:    "Modified BSD license (3-clause)",
 		Slug:    "bsd3c",
 		URL:     "https://directory.fsf.org/wiki/License:BSD-3-Clause",
-		Text:    text,
+		Text:    bsd3text,
 		PerFile: licenses.PerFileNotice,
 	})
 }
 
-const text = `
+const bsd3text = `
 Copyright (C) {{date "2006"}}, {{.Author}}
 All Rights Reserved.
 
