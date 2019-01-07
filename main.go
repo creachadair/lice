@@ -23,6 +23,7 @@ import (
 	_ "bitbucket.org/creachadair/lice/licenses/cc"
 	_ "bitbucket.org/creachadair/lice/licenses/gpl"
 	_ "bitbucket.org/creachadair/lice/licenses/mit"
+	_ "bitbucket.org/creachadair/lice/licenses/unlicense"
 )
 
 var (
