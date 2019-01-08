@@ -41,6 +41,7 @@ var (
 
 	indent = map[string]licenses.Indenting{
 		"hash":  licenses.IPrefix("# "),                    // like bash, Python, Perl
+		"ps":    licenses.IPrefix("% "),                    // like PostScript or PDF
 		"slash": licenses.IPrefix("// "),                   // like C++, Go, Java
 		"star":  licenses.IComment("/*", "   ", " */"),     // like C
 		"sstar": licenses.IComment("/*", " * ", " */"),     // like C
@@ -185,6 +186,8 @@ func chooseIndent(path string) licenses.Indenting {
 		return indent["star"]
 	case ".htm", ".html", ".xhtml":
 		return indent["xml"]
+	case ".ps", ".eps", ".epsf", ".pdf":
+		return indent["ps"]
 	default:
 		return nil
 	}
