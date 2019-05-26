@@ -180,7 +180,7 @@ func chooseIndent(path string) licenses.Indenting {
 	switch filepath.Ext(path) {
 	case "", ".sh", ".py", ".pl", ".rb": // N.B. includes no extension
 		return indent["hash"]
-	case ".cc", ".cpp", ".go", ".java", ".js":
+	case ".cc", ".cpp", ".go", ".java", ".js", ".proto":
 		return indent["slash"]
 	case ".c", ".h":
 		return indent["star"]
