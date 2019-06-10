@@ -3,7 +3,7 @@
 // Package mit describes "the" MIT software licenses.
 package mit
 
-import "bitbucket.org/creachadair/lice/licenses"
+import "github.com/creachadair/lice/licenses"
 
 func init() {
 	licenses.Register(licenses.License{

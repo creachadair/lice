@@ -2,7 +2,7 @@
 
 package bsd
 
-import "bitbucket.org/creachadair/lice/licenses"
+import "github.com/creachadair/lice/licenses"
 
 func init() {
 	licenses.Register(licenses.License{

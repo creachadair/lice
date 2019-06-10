@@ -3,7 +3,7 @@
 // Package unlicense describes the unlicense.
 package unlicense
 
-import "bitbucket.org/creachadair/lice/licenses"
+import "github.com/creachadair/lice/licenses"
 
 func init() {
 	licenses.Register(licenses.License{

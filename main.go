@@ -16,14 +16,14 @@ import (
 
 	"bitbucket.org/creachadair/goflags/enumflag"
 	"bitbucket.org/creachadair/goflags/timeflag"
-	"bitbucket.org/creachadair/lice/licenses"
+	"github.com/creachadair/lice/licenses"
 
-	_ "bitbucket.org/creachadair/lice/licenses/apache"
-	_ "bitbucket.org/creachadair/lice/licenses/bsd"
-	_ "bitbucket.org/creachadair/lice/licenses/cc"
-	_ "bitbucket.org/creachadair/lice/licenses/gpl"
-	_ "bitbucket.org/creachadair/lice/licenses/mit"
-	_ "bitbucket.org/creachadair/lice/licenses/unlicense"
+	_ "github.com/creachadair/lice/licenses/apache"
+	_ "github.com/creachadair/lice/licenses/bsd"
+	_ "github.com/creachadair/lice/licenses/cc"
+	_ "github.com/creachadair/lice/licenses/gpl"
+	_ "github.com/creachadair/lice/licenses/mit"
+	_ "github.com/creachadair/lice/licenses/unlicense"
 )
 
 var (
