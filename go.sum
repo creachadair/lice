@@ -1,2 +1,2 @@
-bitbucket.org/creachadair/goflags v0.0.4 h1:xPnDOuuxTVKrisveY+JCrGDAhy9B/JsoIK9SnZmTn8c=
-bitbucket.org/creachadair/goflags v0.0.4/go.mod h1:fd2pr7vA85wjS4zwGvY+AETJsejYqb459QrYQzaAzjg=
+github.com/creachadair/goflags v0.1.0 h1:ZmrBsMVO8hTdLrBZf7LsDdqiwWf8XKRydFCZJrtcJ0E=
+github.com/creachadair/goflags v0.1.0/go.mod h1:9AOjh5GT2GMWx8/GY2CIRwLOChmmW06Yl7t4la5sLDs=

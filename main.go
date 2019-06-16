@@ -14,8 +14,8 @@ import (
 	"text/tabwriter"
 	"time"
 
-	"bitbucket.org/creachadair/goflags/enumflag"
-	"bitbucket.org/creachadair/goflags/timeflag"
+	"github.com/creachadair/goflags/enumflag"
+	"github.com/creachadair/goflags/timeflag"
 	"github.com/creachadair/lice/licenses"
 
 	_ "github.com/creachadair/lice/licenses/apache"
