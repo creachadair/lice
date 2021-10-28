@@ -11,7 +11,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"text/template"
@@ -126,7 +125,7 @@ func (lic *License) EditFile(f *os.File, c *Config, indent Indenting) error {
 	}
 
 	// Create a tempfile to receive the annotated file.
-	tmp, err := ioutil.TempFile(filepath.Dir(abs), filepath.Base(abs)+"~*")
+	tmp, err := os.CreateTemp(filepath.Dir(abs), filepath.Base(abs)+"~*")
 	if err != nil {
 		return err
 	}
