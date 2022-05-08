@@ -24,7 +24,6 @@ import (
 	_ "github.com/creachadair/lice/licenses/gpl"
 	_ "github.com/creachadair/lice/licenses/mit"
 	_ "github.com/creachadair/lice/licenses/mpl"
-	_ "github.com/creachadair/lice/licenses/unlicense"
 )
 
 var (
