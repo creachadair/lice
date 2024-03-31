@@ -16,6 +16,8 @@ func init() {
 }
 
 const bsd3text = `
+BSD 3-Clause License
+
 Copyright (C) {{date "2006"}}, {{.Author}}
 All Rights Reserved.
 

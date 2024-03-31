@@ -15,6 +15,8 @@ func init() {
 }
 
 const freetext = `
+BSD 2-Clause FreeBSD License
+
 Copyright {{date "2006"}}, {{.Author}}
 All Rights Reserved.
 
