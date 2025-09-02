@@ -12,9 +12,10 @@ import (
 	"fmt"
 	"io"
 	"os"
-	"path/filepath"
 	"text/template"
 	"time"
+
+	"github.com/creachadair/atomicfile"
 )
 
 // PerFileNotice is a generic per-file license statement that can be added to
@@ -104,9 +105,7 @@ func (lic *License) EditFile(f *os.File, c *Config, indent Indenting) error {
 		return nil
 	}
 
-	// Find where the file is located so we can create a tempfile in the same
-	// directory.
-	abs, err := filepath.Abs(f.Name())
+	fi, err := f.Stat()
 	if err != nil {
 		return err
 	}
@@ -124,27 +123,11 @@ func (lic *License) EditFile(f *os.File, c *Config, indent Indenting) error {
 		return err
 	}
 
-	// Create a tempfile to receive the annotated file.
-	tmp, err := os.CreateTemp(filepath.Dir(abs), filepath.Base(abs)+"~*")
-	if err != nil {
-		return err
-	}
-	defer os.Remove(tmp.Name())
-
-	// Write the annotation to tmp, then copy the original file after it.  Sync
-	// to ensure the write is committed, then close and replace the original.
-	err = write(tmp)
-	if err == nil {
-		_, err = io.Copy(tmp, f)
-		if err == nil {
-			err = tmp.Sync()
+	return atomicfile.Tx(f.Name(), fi.Mode().Perm(), func(tmp *atomicfile.File) error {
+		if err := write(tmp); err != nil {
+			return err
 		}
-	}
-	cerr := tmp.Close()
-	if err != nil {
+		_, err := io.Copy(tmp, f)
 		return err
-	} else if cerr != nil {
-		return cerr
-	}
-	return os.Rename(tmp.Name(), f.Name())
+	})
 }

@@ -1,2 +1,6 @@
+github.com/creachadair/atomicfile v0.3.8 h1:PyMIBZHZunTF+2+OSJCUg4XWO9nh6NwIacUBtF6tdg8=
+github.com/creachadair/atomicfile v0.3.8/go.mod h1:oZrfNyYdwMjCD+eKNqsnPmdnQ54z4ujOoYvNTZyuJ2A=
 github.com/creachadair/goflags v0.2.0 h1:rbxqkew3pwEY52VjZox+ppT3nZWjZYIKzW7B2xsW1h4=
 github.com/creachadair/goflags v0.2.0/go.mod h1:/D+gfLgy78/k8H4kK0U2yNo/sRxRALL3SsLBCuQXjjg=
+github.com/creachadair/mds v0.24.1 h1:bzL4ItCtAUxxO9KkotP0PVzlw4tnJicAcjPu82v2mGs=
+github.com/creachadair/mds v0.24.1/go.mod h1:ArfS0vPHoLV/SzuIzoqTEZfoYmac7n9Cj8XPANHocvw=

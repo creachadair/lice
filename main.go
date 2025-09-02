@@ -14,6 +14,7 @@ import (
 	"text/tabwriter"
 	"time"
 
+	"github.com/creachadair/atomicfile"
 	"github.com/creachadair/goflags/enumflag"
 	"github.com/creachadair/goflags/timeflag"
 	"github.com/creachadair/lice/licenses"
@@ -120,20 +121,17 @@ func main() {
 
 	// Write a license to a file.
 	if *writeFile != "" {
-		oflag := os.O_RDWR | os.O_CREATE | os.O_TRUNC
-		if !*doForce {
-			oflag |= os.O_EXCL
+		if fi, err := os.Stat(*writeFile); err == nil {
+			if !*doForce {
+				log.Fatalf("License file %q already exists", *writeFile)
+			} else if !fi.Mode().IsRegular() {
+				log.Fatalf("License file %q exists and is not a plain file", *writeFile)
+			}
 		}
-		f, err := os.OpenFile(*writeFile, oflag, 0644)
-		if err != nil {
-			log.Fatalf("Opening license file: %v", err)
-		}
-		err = lic.WriteText(f, cfg)
-		cerr := f.Close()
-		if err != nil {
+		if err := atomicfile.Tx(*writeFile, 0644, func(f *atomicfile.File) error {
+			return lic.WriteText(f, cfg)
+		}); err != nil {
 			log.Fatalf("Writing license file: %v", err)
-		} else if cerr != nil {
-			log.Fatalf("Closing license file: %v", cerr)
 		}
 		fmt.Fprintf(os.Stderr, "Wrote %s to %s\n", lic.Name, *writeFile)
 	}
