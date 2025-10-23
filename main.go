@@ -7,6 +7,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"io"
 	"log"
 	"os"
 	"os/user"
@@ -128,8 +129,8 @@ func main() {
 				log.Fatalf("License file %q exists and is not a plain file", *writeFile)
 			}
 		}
-		if err := atomicfile.Tx(*writeFile, 0644, func(f *atomicfile.File) error {
-			return lic.WriteText(f, cfg)
+		if err := atomicfile.Tx(*writeFile, 0644, func(w io.Writer) error {
+			return lic.WriteText(w, cfg)
 		}); err != nil {
 			log.Fatalf("Writing license file: %v", err)
 		}

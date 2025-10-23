@@ -123,7 +123,7 @@ func (lic *License) EditFile(f *os.File, c *Config, indent Indenting) error {
 		return err
 	}
 
-	return atomicfile.Tx(f.Name(), fi.Mode().Perm(), func(tmp *atomicfile.File) error {
+	return atomicfile.Tx(f.Name(), fi.Mode().Perm(), func(tmp io.Writer) error {
 		if err := write(tmp); err != nil {
 			return err
 		}
