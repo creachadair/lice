@@ -84,14 +84,14 @@ func (t *block) append(ss ...string) *block {
 func (t *block) String() string { return strings.Join(t.lines, "\n") }
 
 func leftSpace(s string) string {
-	var left string
+	var left strings.Builder
 	for _, c := range s {
 		if !unicode.IsSpace(c) {
 			break
 		}
-		left += string(c)
+		left.WriteString(string(c))
 	}
-	return left
+	return left.String()
 }
 
 // An Indenting is a rule for indenting or commenting license text for
