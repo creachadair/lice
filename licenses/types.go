@@ -21,7 +21,7 @@ import (
 // PerFileNotice is a generic per-file license statement that can be added to
 // any license that does not have more specific language to recommend.
 const PerFileNotice = `
-Copyright (C) {{date "2006"}} {{.Author}}. All Rights Reserved.
+Copyright (C) {{if .IncludeCopyrightDate}}{{date "2006"}} {{end}}{{.Author}}. All Rights Reserved.
 `
 
 // A License describes a software license.
@@ -62,12 +62,15 @@ type Config struct {
 	// The current time. The template can render this field using the "time" and
 	// "date" functions provided in the function map.
 	Time time.Time
+
+	// If true, request inclusion of the date in copyright messages.
+	IncludeCopyrightDate bool
 }
 
 // newTemplate parses a text template initialized with the helpers provided by
 // c, and returns a function that will execute the template into an io.Writer
 // using c as its context.
-func (c Config) newTemplate(text string) (func(io.Writer) error, error) {
+func (c *Config) newTemplate(text string) (func(io.Writer) error, error) {
 	t, err := template.New("text").Funcs(template.FuncMap{
 		"date": c.Time.Format,
 		"time": c.Time.Format,

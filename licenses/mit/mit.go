@@ -16,7 +16,7 @@ func init() {
 }
 
 const text = `
-Copyright (c) {{date "2006"}} {{.Author}}. All Rights Reserved.
+Copyright (c) {{if .IncludeCopyrightDate}}{{date "2006"}} {{end}}{{.Author}}. All Rights Reserved.
  
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in

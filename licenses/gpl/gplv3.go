@@ -638,7 +638,7 @@ copy of the Program in return for a fee.
 `
 
 const v3perFile = `
-    Copyright (C) {{date "2006"}} {{.Author}}
+    Copyright (C) {{if .IncludeCopyrightDate}}{{date "2006"}} {{end}}{{.Author}}
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

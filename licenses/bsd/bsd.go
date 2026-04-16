@@ -18,7 +18,7 @@ func init() {
 const bsd3text = `
 BSD 3-Clause License
 
-Copyright (C) {{date "2006"}}, {{.Author}}
+Copyright (C) {{if .IncludeCopyrightDate}}{{date "2006"}}, {{end}}{{.Author}}
 All Rights Reserved.
 
 Redistribution and use in source and binary forms, with or without

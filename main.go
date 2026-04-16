@@ -29,15 +29,16 @@ import (
 )
 
 var (
-	indentStyle = enumflag.New("guess", "hash", "none", "slash", "star", "sstar", "xml")
-	dateNow     = &timeflag.Value{Layout: "2006", Time: time.Now()}
-	projectName = flag.String("project", "", "Project name (if distinct from author)")
-	writeFile   = flag.String("write", "", "Write a license file at this path")
-	slug        = flag.String("L", "", "License to use (use -list for a list)")
-	doForce     = flag.Bool("f", false, "Force overwrite of existing files")
-	doEdit      = flag.Bool("edit", false, "Edit license text into non-flag argument files")
-	doList      = flag.Bool("list", false, "List available licenses")
-	viewLicense = flag.String("view", "", "View license text")
+	indentStyle   = enumflag.New("guess", "hash", "none", "slash", "star", "sstar", "xml")
+	dateNow       = &timeflag.Value{Layout: "2006", Time: time.Now()}
+	projectName   = flag.String("project", "", "Project name (if distinct from author)")
+	writeFile     = flag.String("write", "", "Write a license file at this path")
+	slug          = flag.String("L", "", "License to use (use -list for a list)")
+	doForce       = flag.Bool("f", false, "Force overwrite of existing files")
+	doEdit        = flag.Bool("edit", false, "Edit license text into non-flag argument files")
+	doList        = flag.Bool("list", false, "List available licenses")
+	doIncludeDate = flag.Bool("include-date", false, "Include the date in copyright declarations")
+	viewLicense   = flag.String("view", "", "View license text")
 
 	userName string
 
@@ -111,6 +112,8 @@ func main() {
 		Author:  userName,
 		Project: *projectName,
 		Time:    dateNow.Time,
+
+		IncludeCopyrightDate: *doIncludeDate,
 	}
 
 	// View a license.

@@ -17,7 +17,7 @@ func init() {
 const freetext = `
 BSD 2-Clause FreeBSD License
 
-Copyright {{date "2006"}}, {{.Author}}
+Copyright {{if .IncludeCopyrightDate}}{{date "2006"}}, {{end}}{{.Author}}
 All Rights Reserved.
 
 Redistribution and use in source and binary forms, with or without
